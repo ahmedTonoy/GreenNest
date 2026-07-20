@@ -1,0 +1,126 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes: false;
+}
+
+:root {
+  /* Brand */
+  --plant-green: #2e7d32;
+  --plant-green-content: #ffffff;
+
+  --plant-sage: #a5d6a7;
+  --plant-sage-content: #16351a;
+
+  --plant-terracotta: #d4a373;
+  --plant-terracotta-content: #321c0c;
+
+  /* Surfaces */
+  --plant-surface: #ffffff;
+  --plant-background: #fafaf8;
+  --plant-surface-muted: #f1f3ee;
+
+  /* Text */
+  --plant-text: #1f2937;
+
+  /* Neutral */
+  --plant-neutral: #4b5563;
+  --plant-neutral-content: #ffffff;
+
+  /* Feedback */
+  --plant-info: #3b82f6;
+  --plant-info-content: #ffffff;
+
+  --plant-success: #4caf50;
+  --plant-success-content: #ffffff;
+
+  --plant-warning: #f9a825;
+  --plant-warning-content: #2b2100;
+
+  --plant-error: #d32f2f;
+  --plant-error-content: #ffffff;
+}
+
+@theme {
+  --font-display: "Playfair Display", serif;
+  --font-body: "Open Sans", sans-serif;
+}
+
+@plugin "daisyui/theme" {
+  name: "plant-store";
+  default: true;
+  prefersdark: false;
+  color-scheme: light;
+
+  /* Base / surfaces */
+  --color-base-100: var(--plant-surface);
+  --color-base-200: var(--plant-background);
+  --color-base-300: var(--plant-surface-muted);
+  --color-base-content: var(--plant-text);
+
+  /* Brand */
+  --color-primary: var(--plant-green);
+  --color-primary-content: var(--plant-green-content);
+
+  --color-secondary: var(--plant-sage);
+  --color-secondary-content: var(--plant-sage-content);
+
+  --color-accent: var(--plant-terracotta);
+  --color-accent-content: var(--plant-terracotta-content);
+
+  /* Neutral */
+  --color-neutral: var(--plant-neutral);
+  --color-neutral-content: var(--plant-neutral-content);
+
+  /* Feedback */
+  --color-info: var(--plant-info);
+  --color-info-content: var(--plant-info-content);
+
+  --color-success: var(--plant-success);
+  --color-success-content: var(--plant-success-content);
+
+  --color-warning: var(--plant-warning);
+  --color-warning-content: var(--plant-warning-content);
+
+  --color-error: var(--plant-error);
+  --color-error-content: var(--plant-error-content);
+
+  /* Component shape */
+  --radius-selector: 0.5rem;
+  --radius-field: 0.25rem;
+  --radius-box: 0.5rem;
+
+  /* Component sizing */
+  --size-selector: 0.25rem;
+  --size-field: 0.25rem;
+
+  /* Border and effects */
+  --border: 1px;
+  --depth: 1;
+  --noise: 0;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-body);
+    background-color: var(--color-base-200);
+    color: var(--color-base-content);
+  }
+
+  h1,
+  h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+}
