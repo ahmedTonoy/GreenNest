@@ -1,0 +1,34 @@
+[
+  {
+    "tipId": 1,
+    "title": "Watering Indoor Plants the Right Way",
+    "category": "Watering",
+    "summary": "Water your plants only when the top inch of soil feels dry. Avoid over watering, as it can lead to root rot, while underwatering may cause leaves to wilt and turn brown.",
+    "readTime": "3 min read",
+    "image": "https://www.plantsolve.com/assets/images/how-can-i-keep-my-plants-alive-while-on-vacation-hero.webp"
+  },
+  {
+    "tipId": 2,
+    "title": "Choosing the Best Sunlight for Indoor Plants",
+    "category": "Sunlight",
+    "summary": "Most indoor plants thrive in bright, indirect sunlight. Rotate pots every few weeks to ensure even growth and prevent plants from leaning toward the light source.",
+    "readTime": "4 min read",
+    "image": "https://www.plantsolve.com/assets/images/how-to-grow-vegetables-indoors-year-round-hero.webp"
+  },
+  {
+    "tipId": 3,
+    "title": "When and How to Fertilize Houseplants",
+    "category": "Fertilizing",
+    "summary": "Feed your indoor plants with a balanced liquid fertilizer every 4–6 weeks during the growing season. Reduce or stop fertilizing during winter when plant growth naturally slows.",
+    "readTime": "3 min read",
+    "image": "https://www.plantsolve.com/assets/images/how-to-dose-fertilizer-for-plants-hero-tn.webp"
+  },
+  {
+    "tipId": 4,
+    "title": "Keeping Houseplants Safe for Pets",
+    "category": "Pet Safety",
+    "summary": "Some popular indoor plants can be toxic to cats and dogs. Research each plant before bringing it home, keep potentially harmful plants out of reach, and choose pet-friendly varieties whenever possible to create a safe indoor environment.",
+    "readTime": "3 min read",
+    "image": "https://www.plantsolve.com/assets/images/how-do-i-stop-my-cat-or-dog-from-eating-my-plants-hero.webp"
+  }
+]
