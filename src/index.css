@@ -9,13 +9,13 @@
 
 :root {
   /* Brand */
-  --plant-green: #2e7d32;
+  --plant-green: #279c2d;
   --plant-green-content: #ffffff;
 
   --plant-sage: #a5d6a7;
   --plant-sage-content: #16351a;
 
-  --plant-terracotta: #d4a373;
+  --plant-terracotta: #f19d2f;
   --plant-terracotta-content: #321c0c;
 
   /* Surfaces */
@@ -27,7 +27,7 @@
   --plant-text: #1f2937;
 
   /* Neutral */
-  --plant-neutral: #4b5563;
+  --plant-neutral: #3b434e;
   --plant-neutral-content: #ffffff;
 
   /* Feedback */
@@ -122,5 +122,16 @@
   h6 {
     font-family: var(--font-display);
     font-weight: 600;
+  }
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 576px) {
+  .container {
+    padding-inline: 16px;
   }
 }
