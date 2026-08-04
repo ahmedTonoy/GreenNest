@@ -130,6 +130,15 @@
   margin: 0 auto;
 }
 
+.swiper {
+  padding-bottom: 35px !important;
+  --swiper-pagination-color: var(--color-primary);
+}
+
+.swiper-pagination {
+  bottom: 0px !important;
+}
+
 @media screen and (max-width: 576px) {
   .container {
     padding-inline: 16px;
