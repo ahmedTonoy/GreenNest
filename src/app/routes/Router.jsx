@@ -7,6 +7,8 @@ import Register from "../../features/auth/pages/Register";
 import Login from "../../features/auth/pages/Login";
 import Plants from "../../features/plant/pages/Plants";
 import MyProfile from "../../features/user/pages/MyProfile";
+import { homeLoader } from "../../features/home/loaders/homeLoader";
+import LoadingSpinner from "../../shared/components/ui/LoadingSpinner";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,8 @@ const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        loader: homeLoader,
+        HydrateFallback: LoadingSpinner,
       },
       {
         path: "plants",

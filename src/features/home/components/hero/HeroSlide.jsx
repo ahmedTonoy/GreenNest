@@ -4,7 +4,6 @@ import decorative from "../../../../assets/decor2.png";
 const HeroSlide = ({ slide }) => {
   const { badge, title, description, image, primaryButton, secondaryButton } =
     slide;
-  console.log(secondaryButton);
   return (
     <div className="flex flex-col md:flex-row justify-between items-center gap-5 w-full md:relative">
       <div className="space-y-5 text-center md:text-left md:w-[55%] z-10">
