@@ -24,6 +24,8 @@ const router = createBrowserRouter([
       {
         path: "plants",
         Component: Plants,
+        loader: () => fetch("/plantsData.json"),
+        HydrateFallback: LoadingSpinner,
       },
       {
         path: "profile",

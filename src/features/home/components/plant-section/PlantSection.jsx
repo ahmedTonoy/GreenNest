@@ -5,7 +5,7 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router";
 
 const PlantSection = ({ plantsData }) => {
-  const featuredPlants = plantsData.slice(0, 6);
+  const featuredPlants = plantsData.slice(0, 8);
   return (
     <div className="my-5">
       <SectionHeadings
