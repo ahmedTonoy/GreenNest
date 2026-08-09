@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "title": "Green Workspace",
+    "description": "Add a touch of greenery to your desk for a fresh and inviting workspace.",
+    "category": "Workspace",
+    "image": "https://officebanao.com/wp-content/uploads/2024/01/empty-green-coworking-modern-eco-office-interior-corporate-workspace-abstract-generative-ai-illustration-1.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Bedroom Retreat",
+    "description": "Create a calm and refreshing bedroom atmosphere with carefully placed greenery.",
+    "category": "Bedroom",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStnsLH7-U8aDKwd7DFfFTM6ZsNbmIC-mRV2YxEoPbX58fpqgdKPKuE2rc&s=10"
+  },
+  {
+    "id": 3,
+    "title": "Shelf Styling",
+    "description": "Bring your shelves to life by pairing small indoor plants with your favorite decor.",
+    "category": "Decor",
+    "image": "https://cdn.apartmenttherapy.info/image/upload/f_auto,q_auto:eco,w_730/at%2Fhouse%20tours%2Farchive%2FMila%20Moraga-Holz%2F4f257814d68cbcd975c852a00a0f9eaf31373d1b"
+  },
+  {
+    "id": 4,
+    "title": "Entryway Greenery",
+    "description": "Make a welcoming first impression by adding plants to your home's entrance.",
+    "category": "Entryway",
+    "image": "https://www.accentondesign.net/wp-content/uploads/2025/02/living-wall-home-entrance.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Cozy Plant Corners",
+    "description": "Turn an empty corner into a relaxing retreat with a beautiful statement plant.",
+    "category": "Living Room",
+    "image": "https://cdn.mos.cms.futurecdn.net/DDdCtoLpn9yGXciwevPztT-1500-80.jpg"
+  }
+]
