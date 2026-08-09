@@ -13,8 +13,8 @@ const heroSlides = [
     },
     secondaryButton: {
       text: "Plant Care Guide",
-      type: "section",
-      to: "guides",
+      type: "anchor",
+      to: "#guides",
     },
   },
   {
@@ -26,8 +26,8 @@ const heroSlides = [
     image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGpgCSqpTLji4qMowcWWyOHrloklpwq8shTgo9YHepQw&s=10",
     primaryButton: {
       text: "Explore Guides",
-      type: "section",
-      to: "guides",
+      type: "anchor",
+      to: "#guides",
     },
     secondaryButton: {
       text: "Browse Plants",
@@ -44,8 +44,8 @@ const heroSlides = [
     image: "https://img.magnific.com/free-photo/happy-couple-small-business-owners_53876-128889.jpg?semt=ais_hybrid&w=740&q=80",
     primaryButton: {
       text: "Meet Our Experts",
-      type: "section",
-      to: "experts",
+      type: "anchor",
+      to: "#experts",
     },
   },
 ];

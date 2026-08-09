@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import decorative from "../../../../assets/decor2.png";
+import HeroCTA from "./HeroCTA";
 
 const HeroSlide = ({ slide }) => {
   const { badge, title, description, image, primaryButton, secondaryButton } =
@@ -38,14 +39,10 @@ const HeroSlide = ({ slide }) => {
           className="flex justify-center md:justify-start gap-4"
         >
           {primaryButton && (
-            <button className="btn min-w-37 btn-primary">
-              {primaryButton.text}
-            </button>
+            <HeroCTA button={primaryButton} variant="btn-primary" />
           )}
           {secondaryButton && (
-            <button className="btn min-w-37 btn-secondary">
-              {secondaryButton?.text}
-            </button>
+            <HeroCTA button={secondaryButton} variant="btn-secondary" />
           )}
         </motion.div>
       </div>

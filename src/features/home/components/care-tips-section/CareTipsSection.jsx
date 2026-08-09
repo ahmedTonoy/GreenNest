@@ -3,7 +3,7 @@ import CareTipsCard from "./CareTipsCard";
 
 const CareTipsSection = ({ careTipsData }) => {
   return (
-    <div className="my-5">
+    <div id="guides" className="my-5">
       <SectionHeadings
         sectionTitle={"🌱 Grow with Confidence"}
         sectionParagraph={

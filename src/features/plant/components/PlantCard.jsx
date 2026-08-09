@@ -8,7 +8,7 @@ const PlantCard = ({ plant }) => {
     <div className="card w-full bg-base-100 shadow-sm relative transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl rounded-[42%_42%_22%_22%/12%_12%_38%_38%] border border-accent/35">
       <figure className="w-full p-3 md:p-4">
         <img
-          className="w-full h-55 object-cover rounded-[60%_60%_5%_5%/18%_18%_4%_4%]"
+          className="w-full h-80 md:h-65 object-cover rounded-[60%_60%_5%_5%/18%_18%_4%_4%]"
           src={tnImage}
           alt={`Image of ${plantName}`}
         />

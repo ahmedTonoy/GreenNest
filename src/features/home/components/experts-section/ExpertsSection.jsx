@@ -6,7 +6,7 @@ const ExpertsSection = ({ expertsData }) => {
   const [openedCard, setOpenedCard] = useState(null);
 
   return (
-    <div>
+    <div id="experts">
       <SectionHeadings
         sectionTitle={"👩‍🌾 Expert Guidance, Anytime"}
         sectionParagraph={
