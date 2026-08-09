@@ -3,7 +3,7 @@ import EcoDecorGrid from "./EcoDecorGrid";
 
 const EcoDecorSection = ({ ecoDecorIdeas }) => {
   return (
-    <div>
+    <div id="eco-decor">
       <SectionHeadings
         sectionTitle={"🏡 Nature Meets Interior Design"}
         sectionParagraph={

@@ -38,7 +38,7 @@ const heroSlides = [
   {
     id: 3,
     badge: "👩‍🌾 Expert Consultation",
-    title: "Get Personalized Advice from Plant Care Experts",
+    title: "Get Personalized Advice from Plant Care & Interior Experts",
     description:
       "Book one-on-one consultations to diagnose plant problems, choose suitable species, and keep your indoor garden thriving all year round.",
     image: "https://img.magnific.com/free-photo/happy-couple-small-business-owners_53876-128889.jpg?semt=ais_hybrid&w=740&q=80",
@@ -46,6 +46,11 @@ const heroSlides = [
       text: "Meet Our Experts",
       type: "anchor",
       to: "#experts",
+    },
+    secondaryButton: {
+      text: "Get Decor Ideas",
+      type: "anchor",
+      to: "#eco-decor",
     },
   },
 ];
