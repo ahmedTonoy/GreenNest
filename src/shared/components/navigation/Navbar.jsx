@@ -1,75 +1,11 @@
 import MyNavLink from "../ui/MyNavLink";
 import brandLogo from "../../../assets/brand-logo.png";
-import { useEffect, useRef, useState } from "react";
+import useNavbarHeight from "../../hooks/useNavbarHeight";
+import useScrollDirection from "../../hooks/useScrollDirection";
 
 const Navbar = () => {
-  const [isVisible, setIsVisible] = useState(true);
-
-  const [navbarHeight, setNavbarHeight] = useState(0);
-  const navbarRef = useRef(null);
-
-  useEffect(() => {
-    const navbar = navbarRef.current;
-
-    if (!navbar) return;
-
-    const updateHeight = () => {
-      setNavbarHeight(navbar.getBoundingClientRect().height);
-    };
-
-    updateHeight();
-
-    const resizeObserver = new ResizeObserver(updateHeight);
-    resizeObserver.observe(navbar);
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    let previousScrollY = window.scrollY;
-    let scrollDistance = 0;
-
-    const scrollThreshold = 30;
-
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      if (currentScrollY <= 80) {
-        setIsVisible(true);
-        scrollDistance = 0;
-        previousScrollY = currentScrollY;
-        return;
-      }
-
-      const scrollDelta = currentScrollY - previousScrollY;
-
-      if (scrollDelta > 0) {
-        scrollDistance += scrollDelta;
-
-        if (scrollDistance >= scrollThreshold) {
-          setIsVisible(false);
-          scrollDistance = 0;
-        }
-      } else if (scrollDelta < 0) {
-        scrollDistance += scrollDelta;
-
-        if (Math.abs(scrollDistance) >= scrollThreshold) {
-          setIsVisible(true);
-          scrollDistance = 0;
-        }
-      }
-
-      previousScrollY = currentScrollY;
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const { navbarRef, navbarHeight } = useNavbarHeight();
+  const isVisible = useScrollDirection();
 
   const links = (
     <>
