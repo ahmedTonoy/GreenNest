@@ -2,10 +2,17 @@ import MyNavLink from "../ui/MyNavLink";
 import brandLogo from "../../../assets/brand-logo.png";
 import useNavbarHeight from "../../hooks/useNavbarHeight";
 import useScrollDirection from "../../hooks/useScrollDirection";
+import { AuthContext } from "../../../app/providers/auth/AuthContext";
+import { use } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router";
 
 const Navbar = () => {
   const { navbarRef, navbarHeight } = useNavbarHeight();
   const isVisible = useScrollDirection();
+
+  const { user, logOut } = use(AuthContext);
 
   const links = (
     <>
@@ -16,6 +23,11 @@ const Navbar = () => {
       <MyNavLink to="/profile">My Profile</MyNavLink>
     </>
   );
+
+  const handleLogOut = () => {
+    logOut();
+  };
+
   return (
     <>
       <div style={{ height: navbarHeight }} />
@@ -74,12 +86,47 @@ const Navbar = () => {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">{links}</ul>
           </div>
-          <div className="navbar-end gap-3">
-            <a className="btn w-20 btn-outline border-primary hover:bg-base-100 hidden md:inline-flex">
-              Register
-            </a>
-            <a className="btn w-20 btn-primary">Login</a>
-          </div>
+          {user ? (
+            <div className="navbar-end gap-3">
+              <div className="p-1 rounded-full border border-primary">
+                <img
+                  className="w-11 h-11 rounded-full"
+                  src={user.photoURL}
+                  alt="User Profile Image"
+                />
+              </div>
+              <div className="dropdown dropdown-end">
+                <div tabIndex={0} role="button" className="my-6 cursor-pointer">
+                  <FontAwesomeIcon icon={faAngleDown} />
+                </div>
+                <ul
+                  tabIndex="-1"
+                  className="dropdown-content menu bg-base-100 rounded-box z-10 w-fit text-right p-2 shadow-sm"
+                >
+                  <li>
+                    <p>{user.displayName}</p>
+                  </li>
+                  <li>
+                    <button className="btn btn-error" onClick={handleLogOut}>
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <div className="navbar-end gap-3">
+              <Link
+                to="/auth/register"
+                className="btn w-20 btn-outline border-primary hover:bg-base-100 hidden md:inline-flex"
+              >
+                Register
+              </Link>
+              <Link to="/auth/login" className="btn w-20 btn-primary">
+                Login
+              </Link>
+            </div>
+          )}
         </div>
       </div>
     </>
