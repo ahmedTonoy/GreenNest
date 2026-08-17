@@ -28,8 +28,9 @@ const AuthProvider = ({ children }) => {
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-  const updateUser = (profileData) => {
-    return updateProfile(auth.currentUser, profileData);
+  const updateUser = async (profileData) => {
+    await updateProfile(auth.currentUser, profileData);
+    setUser(auth.currentUser);
   };
 
   const logIn = (email, password) => {
@@ -47,11 +48,6 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      if (!currentUser) {
-        setUser(null);
-        setIsLoading(false);
-        return;
-      }
       setUser(currentUser);
       setIsLoading(false);
     });
@@ -64,7 +60,6 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     isLoading,
     user,
-    setUser,
     googleSignIn,
     createUser,
     updateUser,
@@ -73,7 +68,7 @@ const AuthProvider = ({ children }) => {
     resetPassword,
   };
 
-  return <AuthContext authInfo={authInfo}>{children}</AuthContext>;
+  return <AuthContext value={authInfo}>{children}</AuthContext>;
 };
 
 export default AuthProvider;
