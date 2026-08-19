@@ -29,9 +29,12 @@ const AuthProvider = ({ children }) => {
   };
 
   const updateUser = async (profileData) => {
+    setIsLoading(true);
     await updateProfile(auth.currentUser, profileData);
-    setUser(auth.currentUser);
-    return auth.currentUser;
+    const updatedUser = { ...auth.currentUser };
+    setUser(updatedUser);
+    setIsLoading(false);
+    return updatedUser;
   };
 
   const logIn = (email, password) => {

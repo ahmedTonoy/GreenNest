@@ -1,5 +1,5 @@
 import { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../../app/providers/auth/AuthContext";
 import isValidEmail from "../utils/emailFormatValidator";
 import { toast } from "react-toastify";
@@ -9,6 +9,8 @@ import PasswordInput from "../components/PasswordInput";
 const Login = () => {
   const { logIn, googleSignIn, resetPassword } = use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log(location);
 
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -23,7 +25,7 @@ const Login = () => {
     try {
       const { user: loggedInUser } = await logIn(email, password);
       toast.success(`Welcome back ${loggedInUser.displayName}!`);
-      navigate("/");
+      navigate(`${location.state ? location.state : "/"}`);
     } catch (error) {
       console.log(error.message);
       setError(authErrorHandler(error));
@@ -34,7 +36,7 @@ const Login = () => {
     setError("");
     try {
       const { user: loggedInUser } = await googleSignIn();
-      navigate("/");
+      navigate(`${location.state ? location.state : "/"}`);
       toast.success(`Welcome ${loggedInUser.displayName}!`);
     } catch (error) {
       setError(authErrorHandler(error));

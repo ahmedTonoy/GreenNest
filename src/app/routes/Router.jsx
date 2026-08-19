@@ -9,6 +9,7 @@ import Plants from "../../features/plant/pages/Plants";
 import MyProfile from "../../features/user/pages/MyProfile";
 import { homeLoader } from "../../features/home/loaders/homeLoader";
 import PageLoadingSpinner from "../../shared/components/ui/PageLoadingSpinner";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        Component: MyProfile,
+        element: (
+          <PrivateRoute>
+            <MyProfile />
+          </PrivateRoute>
+        ),
       },
     ],
   },
