@@ -8,7 +8,7 @@ import Login from "../../features/auth/pages/Login";
 import Plants from "../../features/plant/pages/Plants";
 import MyProfile from "../../features/user/pages/MyProfile";
 import { homeLoader } from "../../features/home/loaders/homeLoader";
-import LoadingSpinner from "../../shared/components/ui/LoadingSpinner";
+import PageLoadingSpinner from "../../shared/components/ui/PageLoadingSpinner";
 
 const router = createBrowserRouter([
   {
@@ -19,13 +19,13 @@ const router = createBrowserRouter([
         index: true,
         Component: Home,
         loader: homeLoader,
-        HydrateFallback: LoadingSpinner,
+        HydrateFallback: PageLoadingSpinner,
       },
       {
         path: "plants",
         Component: Plants,
         loader: () => fetch("/plantsData.json"),
-        HydrateFallback: LoadingSpinner,
+        HydrateFallback: PageLoadingSpinner,
       },
       {
         path: "profile",
