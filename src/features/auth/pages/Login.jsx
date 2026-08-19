@@ -4,6 +4,7 @@ import { AuthContext } from "../../../app/providers/auth/AuthContext";
 import isValidEmail from "../utils/emailFormatValidator";
 import { toast } from "react-toastify";
 import authErrorHandler from "../utils/authErrorHandler";
+import PasswordInput from "../components/PasswordInput";
 
 const Login = () => {
   const { logIn, googleSignIn, resetPassword } = use(AuthContext);
@@ -78,17 +79,16 @@ const Login = () => {
           <input
             name="email"
             type="email"
-            className="input"
+            className="input w-full"
             placeholder="Email"
             required
             value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
           <label className="label">Password</label>
-          <input
+          <PasswordInput
             name="password"
             type="password"
-            className="input"
             placeholder="Password"
             required
           />

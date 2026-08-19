@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../../app/providers/auth/AuthContext";
 import { toast } from "react-toastify";
 import authErrorHandler from "../utils/authErrorHandler";
+import PasswordInput from "../components/PasswordInput";
 
 const Register = () => {
   const { createUser, updateUser } = use(AuthContext);
@@ -43,7 +44,7 @@ const Register = () => {
           <input
             name="name"
             type="text"
-            className="input"
+            className="input w-full"
             placeholder="Enter your name"
             required
           />
@@ -51,7 +52,7 @@ const Register = () => {
           <input
             name="url"
             type="text"
-            className="input"
+            className="input w-full"
             placeholder="Insert photo URL"
             required
           />
@@ -59,15 +60,14 @@ const Register = () => {
           <input
             name="email"
             type="email"
-            className="input"
+            className="input w-full"
             placeholder="Email"
             required
           />
           <label className="label">Password</label>
-          <input
+          <PasswordInput
             name="password"
             type="password"
-            className="input"
             placeholder="Password"
             required
           />
