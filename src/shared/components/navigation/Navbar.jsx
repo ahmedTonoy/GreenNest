@@ -104,7 +104,9 @@ const Navbar = () => {
                   className="dropdown-content menu bg-base-100 rounded-box z-10 w-fit text-right p-2 shadow-sm"
                 >
                   <li>
-                    <p className="text-center">{user.displayName}</p>
+                    <p className="justify-center text-center">
+                      {user.displayName}
+                    </p>
                   </li>
                   <li>
                     <button className="btn btn-error" onClick={handleLogOut}>

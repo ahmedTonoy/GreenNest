@@ -1,6 +1,9 @@
 import { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../../app/providers/auth/AuthContext";
+import isValidEmail from "../utils/emailFormatValidator";
+import { toast } from "react-toastify";
+import authErrorHandler from "../utils/authErrorHandler";
 
 const Login = () => {
   const { logIn, googleSignIn, resetPassword } = use(AuthContext);
@@ -10,34 +13,35 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
+    setError("");
     e.preventDefault();
 
     const email = e.target.email.value;
     const password = e.target.password.value;
 
     try {
-      await logIn(email, password);
+      const { user: loggedInUser } = await logIn(email, password);
+      toast.success(`Welcome back ${loggedInUser.displayName}!`);
       navigate("/");
     } catch (error) {
-      setError(error.message);
+      console.log(error.message);
+      setError(authErrorHandler(error));
     }
   };
 
   const handleGoogleSignIn = async () => {
+    setError("");
     try {
-      await googleSignIn();
+      const { user: loggedInUser } = await googleSignIn();
       navigate("/");
+      toast.success(`Welcome ${loggedInUser.displayName}!`);
     } catch (error) {
-      setError(error.message);
+      setError(authErrorHandler(error));
     }
   };
 
-  const isValidEmail = (emailString) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(emailString);
-  };
-
   const handleResetPassword = async () => {
+    setError("");
     if (!email) {
       setError("Please provide email to reset password");
       return;
@@ -54,10 +58,12 @@ const Login = () => {
         const gmailURL = "https://mail.google.com/";
         window.open(gmailURL, "_blank", "noopener,noreferrer");
       } else {
-        alert("Please check your inbox or spam folder");
+        toast.info(
+          "Please check your inbox or spam folder for password reset email",
+        );
       }
     } catch (error) {
-      setError(error.message);
+      setError(authErrorHandler(error));
     }
   };
 

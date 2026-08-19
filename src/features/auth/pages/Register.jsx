@@ -1,14 +1,17 @@
-import { use } from "react";
+import { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../../app/providers/auth/AuthContext";
+import { toast } from "react-toastify";
+import authErrorHandler from "../utils/authErrorHandler";
 
 const Register = () => {
-  const { user, createUser, updateUser } = use(AuthContext);
+  const { createUser, updateUser } = use(AuthContext);
   const navigate = useNavigate();
 
-  console.log("Out of submit:", user);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
+    setError("");
     e.preventDefault();
 
     const name = e.target.name.value;
@@ -18,10 +21,14 @@ const Register = () => {
 
     try {
       await createUser(email, password);
-      await updateUser({ displayName: name, photoURL: photoURL });
+      const registeredUser = await updateUser({
+        displayName: name,
+        photoURL: photoURL,
+      });
+      toast.success(`Welcoming ${registeredUser.displayName} to our platform`);
       navigate("/");
     } catch (error) {
-      console.log(error.message);
+      setError(authErrorHandler(error));
     }
   };
 
@@ -64,6 +71,7 @@ const Register = () => {
             placeholder="Password"
             required
           />
+          {error && <p className="text-xs font-semibold text-error">{error}</p>}
           <button className="btn btn-neutral mt-4">Register</button>
         </fieldset>
         <p className="mt-1 text-xs font-semibold text-center">
