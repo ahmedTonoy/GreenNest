@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router";
 import RootLayout from "../layouts/RootLayout";
 import AuthLayout from "../layouts/AuthLayout";
-import PageDetails from "../../features/plant/pages/PageDetails";
+import PlantDetails from "../../features/plant/pages/PlantDetails";
 import Home from "../../features/home/pages/Home";
 import Register from "../../features/auth/pages/Register";
 import Login from "../../features/auth/pages/Login";
@@ -10,6 +10,7 @@ import MyProfile from "../../features/user/pages/MyProfile";
 import { homeLoader } from "../../features/home/loaders/homeLoader";
 import PageLoadingSpinner from "../../shared/components/ui/PageLoadingSpinner";
 import PrivateRoute from "./PrivateRoute";
+import plantDetailsLoader from "../../features/plant/loaders/plantDetailsLoader";
 
 const router = createBrowserRouter([
   {
@@ -53,8 +54,14 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/page-details/1",
-    Component: PageDetails,
+    path: "/plant-details/:plantId",
+    loader: plantDetailsLoader,
+    element: (
+      <PrivateRoute>
+        <PlantDetails />
+      </PrivateRoute>
+    ),
+    HydrateFallback: PageLoadingSpinner,
   },
 ]);
 

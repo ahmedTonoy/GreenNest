@@ -1,9 +1,10 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { faDollarSign } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router";
 
 const PlantCard = ({ plant }) => {
-  const { plantName, price, rating, tnImage, category } = plant;
+  const { plantId, plantName, price, rating, tnImage, category } = plant;
   return (
     <div className="card w-full bg-base-100 shadow-sm relative transition-all duration-200 hover:-translate-y-1 hover:shadow-2xl rounded-[42%_42%_22%_22%/12%_12%_38%_38%] border border-accent/35">
       <figure className="w-full p-3 md:p-4">
@@ -41,7 +42,9 @@ const PlantCard = ({ plant }) => {
           </span>
         </div>
         <div className="card-actions justify-end">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/plant-details/${plantId}`}>
+            <button className="btn btn-primary">View Details</button>
+          </Link>
         </div>
       </div>
     </div>
